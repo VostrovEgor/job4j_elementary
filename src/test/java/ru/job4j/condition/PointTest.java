@@ -5,46 +5,21 @@ import static org.assertj.core.api.Assertions.*;
 
 class PointTest {
     @Test
-    void when00to20then2() {
-        double expected = 2;
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 2;
-        int y2 = 0;
-        double output = Point.distance(x1, y1, x2, y2);
-        assertThat(output).isEqualTo(expected, withPrecision(0.01));
-    }
-
-    @Test
     public void when00to100then10() {
-        double expected = 10;
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 10;
-        int y2 = 0;
-        double output = Point.distance(x1, y1, x2, y2);
-        assertThat(output).isEqualTo(expected, withPrecision(0.01));
+        Point point1 = new Point(0, 0);
+        Point point2 = new Point(10, 0);
+        point1.distance(point2);
+        int expected = 10;
+        assertThat(point2.distance(point1)).isEqualTo(expected);
     }
 
     @Test
     public void when10to40then3() {
-        double expected = 4;
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 4;
-        int y2 = 0;
-        double output = Point.distance(x1, y1, x2, y2);
-        assertThat(output).isEqualTo(expected, withPrecision(0.01));
-    }
 
-    @Test
-    public void when21To20To11Then1() {
-        double expected = 1;
-        int x1 = 2;
-        int y1 = 1;
-        int x2 = 2;
-        int y2 = 0;
-        double output = Point.distance(x1, y1, x2, y2);
-        assertThat(output).isEqualTo(expected, withPrecision(0.01));
+        Point point1 = new Point(1, 0);
+        Point point2 = new Point(4, 0);
+        point1.distance(point2);
+        int expected = 3;
+        assertThat(point2.distance(point1)).isEqualTo(expected);
     }
 }
